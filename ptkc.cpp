@@ -1,4 +1,4 @@
-//This little program converts from pounds to kilograms
+//pounds to kg conversion
 //Devin England
 //Section#: 16836
 //Lab 1
