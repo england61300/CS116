@@ -12,6 +12,6 @@ int main ()
   cout << "Devin: ";
   cin >> pounds;
   kg = pounds / 2.205;
-  cout << name << ", 180 pounds " << kg << endl;
+  cout << name << ", " << pounds << " pounds is " << kg << " kg." << endl;
   return 0;
 }
