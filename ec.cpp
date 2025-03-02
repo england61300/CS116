@@ -1,3 +1,8 @@
+//earnings calculator
+//Devin England
+//Section#: 16836
+//Lab 1
+
 #include <iostream>
 using namespace std;
 
