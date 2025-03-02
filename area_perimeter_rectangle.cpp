@@ -1,3 +1,7 @@
+//Finds the Area and Perimeter of a Rectangle
+//Devin England
+//
+
 #include <iostream>
 using namespace std;
 
