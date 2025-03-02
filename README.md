@@ -10,5 +10,5 @@ How to use:
 2. In terminal type: 
   g++ lab1.cpp -o lab1
   ./lab1
-3.enter any number (represents weight in pounds)
+3. Enter any number (represents weight in pounds)
 
