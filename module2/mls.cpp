@@ -65,7 +65,7 @@ int main() {
          << "After a long journey, " << name << " discovered a hidden cave where a " << adjective << " chest lay waiting. "
          << "But before opening it, " << name << " had to win a game of " << game << " against a mischievous guardian! "
          << "Finally, after an epic battle of wits and skill, the treasure was revealed to be " << favoriteNumber << " golden coins. "
-         << "Also, did you know that if you weighed " << earthWeight << " lbs on Earth, you would weigh "
+         << "And a note that said, did you know that if you weighed " << earthWeight << " lbs on Earth, you would weigh "
          << fixed << setprecision(2) << marsWeight << " lbs on Mars? "
          << "With treasure in hand and an adventure for the ages, " << name << " knew this was only the beginning!" << endl;
     
