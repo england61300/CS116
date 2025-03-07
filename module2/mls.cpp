@@ -16,39 +16,40 @@ int main() {
     // User input
     cout << "Welcome to Mad Libs! Please enter the following words:" << endl;
     cout << "First Name: ";
-    cin >> name;
+    getline(cin, name);
     cout << "Enter a noun: ";
-    cin >> noun;
-    cout << "Enter a verb: ";
-    cin >> verb;
+    getline(cin, noun);
+    cout << "Enter a verb (past tense): ";
+    getline(cin, verb);
     cout << "Enter an adjective: ";
-    cin >> adjective;
+    getline(cin, adjective);
     cout << "Enter an adverb: ";
-    cin >> adverb;
+    getline(cin, adverb);
     cout << "Enter a plural noun: ";
-    cin >> pluralNoun;
+    getline(cin, pluralNoun);
     cout << "Enter a place: ";
-    cin >> place;
+    getline(cin, place);
     cout << "Enter a color: ";
-    cin >> color;
+    getline(cin, color);
     cout << "Enter an animal: ";
-    cin >> animal;
+    getline(cin, animal);
     cout << "Enter a month: ";
-    cin >> month;
+    getline(cin, month);
     cout << "Enter a bug: ";
-    cin >> bug;
+    getline(cin, bug);
     cout << "Enter a random word: ";
-    cin >> randomWord;
+    getline(cin, randomWord);
     cout << "Enter a game: ";
-    cin >> game;
+    getline(cin, game);
     cout << "Enter a food: ";
-    cin >> food;
+    getline(cin, food);
     cout << "Enter your age: ";
     cin >> age;
     cout << "Enter your favorite number: ";
     cin >> favoriteNumber;
     cout << "Enter your weight on Earth (in lbs): ";
     cin >> earthWeight;
+    cin.ignore(); // To avoid issues with getline after cin
     
     // Calculations
     marsWeight = earthWeight * 0.38; // Approximate Mars gravity factor
