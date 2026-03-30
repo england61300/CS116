@@ -1,0 +1,136 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+// constant value used for circle calculations
+const double PI = 3.14159265359;
+
+// base class for all shapes
+// gives default versions of area, perimeter, and name
+class Shape {
+public:
+	// returns the area of a shape
+	// default is 0.0 for the base class
+	virtual double area() const {
+		return 0.0;
+	}
+
+	// returns the perimeter of a shape
+	// default is 0.0 for the base class
+	virtual double perimeter() const {
+		return 0.0;
+	}
+
+	// returns the name of the shape
+	// default name is "Shape"
+	virtual string getName() const {
+		return "Shape";
+	}
+};
+
+// derived class for a circle
+// stores the radius and calculates circle values
+class Circle : public Shape {
+private:
+	double radius; 
+
+public:
+	// constructor that sets the radius
+	Circle(double r) : radius(r) {}
+
+	// calculates and returns the area of the circle
+	double area() const override {
+		return PI * radius * radius;
+	}
+
+	// calculates and returns the perimeter of the circle
+	double perimeter() const override {
+		return 2 * PI * radius;
+	}
+
+	// returns the name of this shape
+	string getName() const override {
+		return "Circle";
+	}
+};
+
+// derived class for a rectangle
+// stores length and width and calculates rectangle values
+class Rectangle : public Shape {
+private:
+	double length;
+	double width;
+
+public:
+	// constructor that sets the length and width
+	Rectangle(double l, double w) : length(l), width(w) {}
+
+	// calculates and returns the area of the rectangle
+	double area() const override {
+		return length * width;
+	}
+
+	// calculates and returns the perimeter of the rectangle
+	double perimeter() const override {
+		return 2 * (length + width);
+	}
+
+	// returns the name of this shape
+	string getName() const override {
+		return "Rectangle";
+	}
+};
+
+// derived class for a triangle
+// stores three side lengths and uses heron's formula for area
+class Triangle : public Shape {
+private:
+	// sides of the triangle
+	double side1; 
+	double side2; 
+	double side3; 
+
+public:
+	// constructor that sets the three sides
+	Triangle(double s1, double s2, double s3)
+		: side1(s1), side2(s2), side3(s3) {
+	}
+
+	// calculates and returns the area using heron's formula
+	double area() const override {
+		double s = (side1 + side2 + side3) / 2;
+		return sqrt(s * (s - side1) * (s - side2) * (s - side3));
+	}
+
+	// calculates and returns the perimeter of the triangle
+	double perimeter() const override {
+		return side1 + side2 + side3;
+	}
+
+	// returns the name of this shape
+	string getName() const override {
+		return "Triangle";
+	}
+};
+
+int main() {
+	// array of pointers to Shape objects
+	// this lets us store different derived shapes together
+	Shape* shapes[3];
+
+	// create one object of each shape type
+	shapes[0] = new Circle(6.0);
+	shapes[1] = new Rectangle(4.0, 6.0);
+	shapes[2] = new Triangle(3.0, 4.0, 5.0);
+
+	// loop through the array and call each shape's functions
+	for (int i = 0; i < 3; i++) {
+		cout << shapes[i]->getName() << ":" << endl;
+		cout << "Area = " << shapes[i]->area() << endl;
+		cout << "Perimeter = " << shapes[i]->perimeter() << endl;
+		cout << endl;
+	}
+	return 0;
+}

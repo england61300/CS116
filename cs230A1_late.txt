@@ -1,0 +1,34 @@
+CS230 Homework 1 – Spring 2026 Last Name:Devin England                      ID#:900869142
+
+
+This homework carries a value of ten points on your final grade. It is due on Tuesday, February 17, 2026 by 11:59 PM.
+Use the CPUID program discussed in class on September 2 to determine some capabilities of your home PC or Mac.
+Refer to the Intel documentation discussed in the February 10 lab period to decode the CPUID program output. The
+Windows Settings/About window also contains some information related to this homework. The “About This Mac”
+option in the Apple symbol does, too. Apple Silicon users, answer the questions at the end.
+Update this document and turn it in via Canvas.
+You may have to modify the parameters to the CPUID instruction to answer some of these questions.
+
+PC Description:
+Manufacturer/Model: HP Pavilion Laptop 15-eh1xxx (System SKU: 3F1F9UA#ABA)
+OS: Windows 11 Home
+CPU: AMD Ryzen 7 5700U with Radeon Graphics (8 cores / 16 logical)
+RAM: 16.0 GB
+
+1. What is the processor type of the PC you used? 
+AMD Ryzen 7 5700U with Radeon Graphics (0x80000002–0x80000004)
+
+2. What is the processor instruction cache size?
+L1 Instruction cache = 8 × 32 KB, EDX[31:24] = 0x20 = 32 KB (0x80000005 -> ... EDX=20080140)
+
+3. Does the processor support the x87 floating point unit? 
+Yes (0x00000001 -> ... EDX=178bfbff) x87 FPU flag = EDX bit 0 = 1
+
+4.  a. Does the processor support the POPCNT instruction? 
+Yes (0x00000001 -> ... ECX=fed8320b) POPCNT flag = ECX bit 23 = 1
+
+	b. What is the CLFLUSH size? 
+	EBX[15:8] = 0x08 = 8 units 8 * 8 = 64 bytes (0x00000001 -> ... EBX=0a100800)
+
+5. Does the processor support the AVX instructions? 
+Yes (ECX bit 28 = 1) (0x00000001 -> ECX = 0xfed8320b)
