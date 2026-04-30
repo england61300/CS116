@@ -1,158 +1,116 @@
-# C++ Copy/Paste Coding Snippet Bank
+# C++ Copy/Paste Snippet Bank
 
-Use this file as a quick reference when building future labs, assignments, notes, or projects.
-
-Each section has:
-- **Copy/Paste Code**
-- **What it is for**
-- **How to change it**
-- **How to expand it**
-
----
-
-# 1. Basic C++ Program Template
-
-## Copy/Paste Code
+# 1. Basic Program
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    cout << "Hello, world!" << endl;
-
+    cout << "Hello!" << endl;
     return 0;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Starting any C++ program.
 
-This is the smallest normal C++ program structure.  
-Every C++ program starts running inside `main()`.
+**Change this:**  
+Change the text inside `cout`.
 
-## How to change it
-
-Change the code inside `main()`.
-
-Example:
-
-```cpp
-cout << "My program starts here!" << endl;
-```
-
-## How to expand it
-
-Add:
-- more `#include` lines at the top
-- variables inside `main()`
-- functions above `main()`
-- classes above `main()`
+**Expand it by:**  
+Adding variables, input, functions, or classes.
 
 ---
 
-# 2. Common Include Template
-
-## Copy/Paste Code
+# 2. Print Something
 
 ```cpp
-#include <iostream>   // cout, cin
-#include <string>     // string
-#include <vector>     // vector
-#include <iomanip>    // setw, fixed, setprecision
-#include <cmath>      // sqrt, pow
-#include <algorithm>  // sort, find
-using namespace std;
+cout << "Message here" << endl;
 ```
 
-## What it is for
+**What it is for:**  
+Displays output on the screen.
 
-This gives you the most common libraries used in beginner/intermediate C++ assignments.
+**Change this:**  
+Replace `"Message here"`.
 
-## How to change it
-
-Only keep what you need.
-
-Examples:
-- Need `cout` and `cin`: keep `<iostream>`
-- Need `string`: keep `<string>`
-- Need `vector`: keep `<vector>`
-- Need `sqrt`: keep `<cmath>`
-
-## How to expand it
-
-Add more libraries if needed:
+**Expand it by:**  
 
 ```cpp
-#include <fstream>  // file input/output
-#include <limits>   // numeric_limits
+cout << "Score: " << score << endl;
 ```
 
 ---
 
-# 3. Basic Input and Output
-
-## Copy/Paste Code
+# 3. User Input
 
 ```cpp
-#include <iostream>
-#include <string>
-using namespace std;
+int number;
 
-int main() {
-    string name;
-    int age;
-
-    cout << "Enter your name: ";
-    cin >> name;
-
-    cout << "Enter your age: ";
-    cin >> age;
-
-    cout << "Name: " << name << endl;
-    cout << "Age: " << age << endl;
-
-    return 0;
-}
+cout << "Enter a number: ";
+cin >> number;
 ```
 
-## What it is for
+**What it is for:**  
+Gets a value from the user.
 
-Use this when you need to ask the user for values.
-
-## How to change it
-
-Change the variable names and types.
-
-Examples:
+**Change this:**  
+Change `int number` to another type.
 
 ```cpp
 double price;
-string lastName;
-int score;
+string name;
 ```
 
-## How to expand it
-
-For full names with spaces, use `getline()`:
-
-```cpp
-string fullName;
-
-cout << "Enter full name: ";
-getline(cin, fullName);
-```
-
-If you use `cin` before `getline`, add:
-
-```cpp
-cin.ignore();
-```
+**Expand it by:**  
+Ask for multiple values.
 
 ---
 
-# 4. If / Else Decision
+# 4. Full Line Input
 
-## Copy/Paste Code
+```cpp
+string text;
+
+cout << "Enter text: ";
+getline(cin, text);
+```
+
+**What it is for:**  
+Gets a full line, including spaces.
+
+**Change this:**  
+Rename `text`.
+
+**Expand it by:**  
+Use after `cin.ignore()` if you used `cin >>` before it.
+
+---
+
+# 5. If / Else
+
+```cpp
+if (number > 0) {
+    cout << "Positive" << endl;
+}
+else {
+    cout << "Zero or negative" << endl;
+}
+```
+
+**What it is for:**  
+Makes a decision.
+
+**Change this:**  
+Change the condition.
+
+**Expand it by:**  
+Adding `else if`.
+
+---
+
+# 6. Else If Chain
 
 ```cpp
 if (score >= 90) {
@@ -161,1171 +119,662 @@ if (score >= 90) {
 else if (score >= 80) {
     cout << "B" << endl;
 }
-else if (score >= 70) {
-    cout << "C" << endl;
-}
 else {
-    cout << "Needs improvement" << endl;
+    cout << "Below B" << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Checks several possible conditions.
 
-Use this when the program needs to make a decision.
+**Change this:**  
+Change the score ranges.
 
-## How to change it
-
-Change:
-- the variable: `score`
-- the conditions: `>= 90`
-- the output messages
-
-## How to expand it
-
-Add more `else if` sections:
-
-```cpp
-else if (score >= 60) {
-    cout << "D" << endl;
-}
-```
+**Expand it by:**  
+Add more `else if` blocks.
 
 ---
 
-# 5. Switch Menu
-
-## Copy/Paste Code
+# 7. Switch Statement
 
 ```cpp
-int choice;
-
-cout << "1. Add" << endl;
-cout << "2. Display" << endl;
-cout << "3. Search" << endl;
-cout << "4. Exit" << endl;
-cout << "Enter choice: ";
-cin >> choice;
-
 switch (choice) {
 case 1:
-    cout << "Add selected" << endl;
+    cout << "Option 1" << endl;
     break;
-
 case 2:
-    cout << "Display selected" << endl;
+    cout << "Option 2" << endl;
     break;
-
-case 3:
-    cout << "Search selected" << endl;
-    break;
-
-case 4:
-    cout << "Exiting..." << endl;
-    break;
-
 default:
-    cout << "Invalid choice" << endl;
+    cout << "Invalid" << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Handles menu choices.
 
-Use this for menu-driven programs.
+**Change this:**  
+Change the case numbers and actions.
 
-## How to change it
-
-Change:
-- menu text
-- case numbers
-- what each case does
-
-## How to expand it
-
-Put the switch inside a loop so the menu repeats.
+**Expand it by:**  
+Add more `case` sections.
 
 ---
 
-# 6. Repeating Menu With Do-While Loop
-
-## Copy/Paste Code
+# 8. Menu Loop
 
 ```cpp
 int choice;
 
 do {
-    cout << "\n===== MENU =====" << endl;
-    cout << "1. Add" << endl;
-    cout << "2. Display" << endl;
-    cout << "3. Search" << endl;
-    cout << "4. Exit" << endl;
-    cout << "Enter choice: ";
+    cout << "1. Start" << endl;
+    cout << "2. Exit" << endl;
     cin >> choice;
 
-    switch (choice) {
-    case 1:
-        cout << "Add selected" << endl;
-        break;
-
-    case 2:
-        cout << "Display selected" << endl;
-        break;
-
-    case 3:
-        cout << "Search selected" << endl;
-        break;
-
-    case 4:
-        cout << "Goodbye!" << endl;
-        break;
-
-    default:
-        cout << "Invalid choice" << endl;
+    if (choice == 1) {
+        cout << "Starting..." << endl;
     }
 
-} while (choice != 4);
+} while (choice != 2);
 ```
 
-## What it is for
+**What it is for:**  
+Repeats a menu until the user exits.
 
-Use this when the user should keep seeing the menu until they choose Exit.
+**Change this:**  
+Change the exit number.
 
-## How to change it
-
-Change `4` to your exit option number.
-
-Example:
-
-```cpp
-} while (choice != 5);
-```
-
-## How to expand it
-
-Replace each `cout` inside the cases with function calls:
-
-```cpp
-case 1:
-    addItem();
-    break;
-```
+**Expand it by:**  
+Use a `switch` inside the loop.
 
 ---
 
-# 7. For Loop
-
-## Copy/Paste Code
+# 9. For Loop
 
 ```cpp
-for (int i = 0; i < 10; i++) {
+for (int i = 0; i < 5; i++) {
     cout << i << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Repeats a known number of times.
 
-Use this when you know how many times you want to repeat something.
+**Change this:**  
+Change `5` to the amount you need.
 
-## How to change it
-
-Change:
-- starting value: `int i = 0`
-- stopping condition: `i < 10`
-- update: `i++`
-
-## How to expand it
-
-Count from 1 to 10:
-
-```cpp
-for (int i = 1; i <= 10; i++) {
-    cout << i << endl;
-}
-```
-
-Count backward:
-
-```cpp
-for (int i = 10; i >= 1; i--) {
-    cout << i << endl;
-}
-```
+**Expand it by:**  
+Use `i` as an array index.
 
 ---
 
-# 8. While Loop
-
-## Copy/Paste Code
+# 10. While Loop
 
 ```cpp
-int count = 0;
+int x = 0;
 
-while (count < 5) {
-    cout << "Count: " << count << endl;
-    count++;
+while (x < 5) {
+    cout << x << endl;
+    x++;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Repeats while a condition is true.
 
-Use this when you want to repeat while a condition is true.
+**Change this:**  
+Change `x < 5`.
 
-## How to change it
-
-Change the condition:
-
-```cpp
-while (choice != 0)
-```
-
-## How to expand it
-
-Use it for input validation:
-
-```cpp
-while (age < 0) {
-    cout << "Age cannot be negative. Enter again: ";
-    cin >> age;
-}
-```
+**Expand it by:**  
+Use it for validation.
 
 ---
 
-# 9. Input Validation Loop
-
-## Copy/Paste Code
+# 11. Input Validation
 
 ```cpp
-int age;
-
-cout << "Enter age: ";
-cin >> age;
-
-while (age < 0) {
-    cout << "Invalid age. Enter age again: ";
-    cin >> age;
+while (number < 0) {
+    cout << "Enter a positive number: ";
+    cin >> number;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Forces the user to enter valid input.
 
-Use this when user input must follow a rule.
-
-## How to change it
-
+**Change this:**  
 Change the condition.
 
-Examples:
+**Expand it by:**  
 
 ```cpp
-while (score < 0 || score > 100)
-while (choice < 1 || choice > 5)
-while (price < 0)
-```
-
-## How to expand it
-
-For multiple rules:
-
-```cpp
-while (units < 0 || units > 21) {
-    cout << "Units must be between 0 and 21: ";
-    cin >> units;
-}
+while (number < 1 || number > 10)
 ```
 
 ---
 
-# 10. Function Template
-
-## Copy/Paste Code
+# 12. Function With Return
 
 ```cpp
-int add(int a, int b) {
-    return a + b;
+int doubleNumber(int x) {
+    return x * 2;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Calculates and returns a value.
 
-Use this to move reusable code outside of `main()`.
+**Change this:**  
+Change the return type, name, and formula.
 
-## How to change it
+**Expand it by:**  
+Add more parameters.
 
-Change:
-- return type: `int`
-- function name: `add`
-- parameters: `int a, int b`
-- return calculation
+---
 
-## How to expand it
-
-Example with no return value:
+# 13. Void Function
 
 ```cpp
-void printLine() {
-    cout << "----------------" << endl;
+void sayHello() {
+    cout << "Hello!" << endl;
 }
 ```
 
-Example with a `double` return:
+**What it is for:**  
+Runs code without returning a value.
+
+**Change this:**  
+Change the function name and message.
+
+**Expand it by:**  
+Add parameters.
 
 ```cpp
-double average(double a, double b) {
-    return (a + b) / 2.0;
-}
+void sayHello(string name)
 ```
 
 ---
 
-# 11. Function Prototype
-
-## Copy/Paste Code
+# 14. Function Prototype
 
 ```cpp
-#include <iostream>
-using namespace std;
-
-// Function prototype
-int add(int a, int b);
+void showMessage();
 
 int main() {
-    cout << add(5, 3) << endl;
+    showMessage();
     return 0;
 }
 
-// Function definition
-int add(int a, int b) {
-    return a + b;
+void showMessage() {
+    cout << "Hi" << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Lets you put functions after `main()`.
 
-Use this when the function is written after `main()`.
+**Change this:**  
+Prototype and function header must match.
 
-## How to change it
-
-The prototype and function definition must match.
-
-This:
-
-```cpp
-int add(int a, int b);
-```
-
-Must match this:
-
-```cpp
-int add(int a, int b) {
-```
-
-## How to expand it
-
-Add more prototypes above `main()`:
-
-```cpp
-void displayMenu();
-double calculateTotal(double price, int quantity);
-```
+**Expand it by:**  
+Add more prototypes above `main()`.
 
 ---
 
-# 12. Array Input and Print
-
-## Copy/Paste Code
+# 15. Array
 
 ```cpp
-const int SIZE = 5;
-int numbers[SIZE];
+int nums[3] = {10, 20, 30};
+```
 
-for (int i = 0; i < SIZE; i++) {
-    cout << "Enter number " << i + 1 << ": ";
-    cin >> numbers[i];
+**What it is for:**  
+Stores multiple values of the same type.
+
+**Change this:**  
+Change size and values.
+
+**Expand it by:**  
+Loop through it.
+
+---
+
+# 16. Print Array
+
+```cpp
+for (int i = 0; i < size; i++) {
+    cout << arr[i] << " ";
 }
-
-cout << "Numbers: ";
-for (int i = 0; i < SIZE; i++) {
-    cout << numbers[i] << " ";
-}
-cout << endl;
 ```
 
-## What it is for
+**What it is for:**  
+Displays all array values.
 
-Use this when you need to store a fixed number of values.
+**Change this:**  
+Change `arr` and `size`.
 
-## How to change it
+**Expand it by:**  
+Print each value on a new line.
 
-Change `SIZE`.
+---
 
-Example:
-
-```cpp
-const int SIZE = 10;
-```
-
-Change type:
-
-```cpp
-double grades[SIZE];
-```
-
-## How to expand it
-
-Find total:
+# 17. Sum Array
 
 ```cpp
 int total = 0;
 
-for (int i = 0; i < SIZE; i++) {
-    total += numbers[i];
+for (int i = 0; i < size; i++) {
+    total += arr[i];
 }
+```
+
+**What it is for:**  
+Adds all values in an array.
+
+**Change this:**  
+Change `arr`.
+
+**Expand it by:**  
+Find average:
+
+```cpp
+double average = total / static_cast<double>(size);
 ```
 
 ---
 
-# 13. Find Largest Value in Array
-
-## Copy/Paste Code
+# 18. Find Max
 
 ```cpp
-int maxValue = numbers[0];
+int maxValue = arr[0];
 
-for (int i = 1; i < SIZE; i++) {
-    if (numbers[i] > maxValue) {
-        maxValue = numbers[i];
-    }
-}
-
-cout << "Largest value: " << maxValue << endl;
-```
-
-## What it is for
-
-Use this to find the biggest number in an array.
-
-## How to change it
-
-For smallest value, change `>` to `<`:
-
-```cpp
-if (numbers[i] < minValue)
-```
-
-## How to expand it
-
-Track the index too:
-
-```cpp
-int maxIndex = 0;
-
-for (int i = 1; i < SIZE; i++) {
-    if (numbers[i] > numbers[maxIndex]) {
-        maxIndex = i;
+for (int i = 1; i < size; i++) {
+    if (arr[i] > maxValue) {
+        maxValue = arr[i];
     }
 }
 ```
+
+**What it is for:**  
+Finds the largest value.
+
+**Change this:**  
+Use `<` to find smallest.
+
+**Expand it by:**  
+Track index too.
 
 ---
 
-# 14. Bubble Sort
-
-## Copy/Paste Code
+# 19. Bubble Sort
 
 ```cpp
-for (int pass = 0; pass < SIZE - 1; pass++) {
-    for (int i = 0; i < SIZE - 1 - pass; i++) {
-        if (numbers[i] > numbers[i + 1]) {
-            int temp = numbers[i];
-            numbers[i] = numbers[i + 1];
-            numbers[i + 1] = temp;
+for (int pass = 0; pass < size - 1; pass++) {
+    for (int i = 0; i < size - 1 - pass; i++) {
+        if (arr[i] > arr[i + 1]) {
+            int temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
         }
     }
 }
 ```
 
-## What it is for
+**What it is for:**  
+Sorts an array from smallest to largest.
 
-Bubble sort sorts an array from smallest to largest.
+**Change this:**  
+Use `<` instead of `>` for largest to smallest.
 
-It compares neighboring values and swaps them if they are in the wrong order.
-
-## How to change it
-
-For descending order, change:
-
-```cpp
-if (numbers[i] > numbers[i + 1])
-```
-
-to:
-
-```cpp
-if (numbers[i] < numbers[i + 1])
-```
-
-## How to expand it
-
-Print after every pass:
-
-```cpp
-for (int j = 0; j < SIZE; j++) {
-    cout << numbers[j] << " ";
-}
-cout << endl;
-```
+**Expand it by:**  
+Put it inside a function.
 
 ---
 
-# 15. Vector Basics
-
-## Copy/Paste Code
+# 20. Vector
 
 ```cpp
-#include <iostream>
+vector<int> nums;
+
+nums.push_back(10);
+nums.push_back(20);
+```
+
+**Required include:**
+
+```cpp
 #include <vector>
-using namespace std;
-
-int main() {
-    vector<int> numbers;
-
-    numbers.push_back(10);
-    numbers.push_back(20);
-    numbers.push_back(30);
-
-    for (int i = 0; i < numbers.size(); i++) {
-        cout << numbers[i] << " ";
-    }
-
-    return 0;
-}
 ```
 
-## What it is for
+**What it is for:**  
+A resizable array.
 
-A vector is like a resizable array.
-
-Use it when you do not know how many items you will need.
-
-## How to change it
-
-Change the type:
+**Change this:**  
+Change the type.
 
 ```cpp
-vector<string> names;
-vector<double> grades;
+vector<string> words;
 ```
 
-## How to expand it
-
-Use `.at()` for safer access:
-
-```cpp
-cout << numbers.at(0);
-```
+**Expand it by:**  
+Loop through it.
 
 ---
 
-# 16. Vector Add / Search / Delete
-
-## Copy/Paste Code
+# 21. Print Vector
 
 ```cpp
-vector<string> names;
-
-names.push_back("Mary");
-names.push_back("John");
-names.push_back("Alex");
-
-// Search
-string target = "John";
-bool found = false;
-
-for (int i = 0; i < names.size(); i++) {
-    if (names[i] == target) {
-        cout << "Found at index " << i << endl;
-        found = true;
-    }
-}
-
-if (!found) {
-    cout << "Not found" << endl;
-}
-
-// Delete first match
-for (int i = 0; i < names.size(); i++) {
-    if (names[i] == target) {
-        names.erase(names.begin() + i);
-        break;
-    }
-}
-```
-
-## What it is for
-
-Use this for simple list programs like contacts, inventory, names, grades, etc.
-
-## How to change it
-
-Change:
-- `vector<string>` to another vector type
-- `target`
-- the search condition
-
-## How to expand it
-
-For class objects:
-
-```cpp
-if (contacts[i].getLastName() == target)
-```
-
----
-
-# 17. Range-Based For Loop
-
-## Copy/Paste Code
-
-```cpp
-for (int value : numbers) {
+for (int value : nums) {
     cout << value << " ";
 }
 ```
 
-## What it is for
+**What it is for:**  
+Prints every item in a vector.
 
-Use this to loop through every value in an array or vector.
+**Change this:**  
+Change `int` and `nums`.
 
-## How to change it
-
-For strings:
-
-```cpp
-for (string name : names) {
-    cout << name << endl;
-}
-```
-
-## How to expand it
-
-Use reference if you want to modify values:
+**Expand it by:**  
+Use references for objects.
 
 ```cpp
-for (int& value : numbers) {
-    value *= 2;
-}
-```
-
-Use const reference to avoid copying objects:
-
-```cpp
-for (const Contact& c : contacts) {
-    c.displayContact();
-}
+for (const auto& item : items)
 ```
 
 ---
 
-# 18. Basic Class Template
-
-## Copy/Paste Code
+# 22. Search Vector
 
 ```cpp
-class Student {
-private:
-    string name;
-    int age;
+bool found = false;
 
-public:
-    Student() {
-        name = "";
-        age = 0;
-    }
-
-    Student(string n, int a) {
-        name = n;
-        age = a;
-    }
-
-    void display() const {
-        cout << "Name: " << name << endl;
-        cout << "Age: " << age << endl;
-    }
-};
-```
-
-## What it is for
-
-Use this when you need to create objects with data and behavior.
-
-## How to change it
-
-Change:
-- class name: `Student`
-- private variables
-- constructor parameters
-- display output
-
-## How to expand it
-
-Add getters and setters.
-
----
-
-# 19. Getters and Setters
-
-## Copy/Paste Code
-
-```cpp
-class Student {
-private:
-    string name;
-    int age;
-
-public:
-    void setName(string n) {
-        name = n;
-    }
-
-    void setAge(int a) {
-        age = a;
-    }
-
-    string getName() const {
-        return name;
-    }
-
-    int getAge() const {
-        return age;
-    }
-};
-```
-
-## What it is for
-
-Getters and setters protect private data.
-
-You change private variables through public functions instead of touching them directly.
-
-## How to change it
-
-For each private variable, usually make:
-- one setter
-- one getter
-
-## How to expand it
-
-Add validation inside setters:
-
-```cpp
-void setAge(int a) {
-    if (a >= 0) {
-        age = a;
+for (int value : nums) {
+    if (value == target) {
+        found = true;
     }
 }
 ```
 
+**What it is for:**  
+Checks if a vector contains something.
+
+**Change this:**  
+Change the condition.
+
+**Expand it by:**  
+Print where it was found.
+
 ---
 
-# 20. Constructor With Initializer List
-
-## Copy/Paste Code
+# 23. Delete From Vector
 
 ```cpp
-class Student {
+nums.erase(nums.begin() + index);
+```
+
+**What it is for:**  
+Removes one element from a vector.
+
+**Change this:**  
+Change `index`.
+
+**Expand it by:**  
+Search first, then erase.
+
+---
+
+# 24. Basic Class
+
+```cpp
+class Thing {
 private:
-    string name;
-    int age;
+    int value;
 
 public:
-    Student(string n, int a) : name(n), age(a) {
+    Thing() {
+        value = 0;
     }
 };
 ```
 
-## What it is for
+**What it is for:**  
+Creates a blueprint for objects.
 
-Initializer lists are the cleaner C++ way to set member variables in constructors.
+**Change this:**  
+Change class name and data.
 
-## How to change it
-
-Match each member variable with the parameter:
-
-```cpp
-ClassName(type parameter) : member(parameter) {}
-```
-
-## How to expand it
-
-Add default values:
-
-```cpp
-Student() : name("Unknown"), age(0) {}
-```
+**Expand it by:**  
+Add setters, getters, and print functions.
 
 ---
 
-# 21. Class With Print Function
-
-## Copy/Paste Code
+# 25. Getter and Setter
 
 ```cpp
-class Item {
+class Thing {
 private:
-    string name;
-    double price;
+    int value;
 
 public:
-    Item(string n, double p) : name(n), price(p) {}
+    void setValue(int v) {
+        value = v;
+    }
 
-    void print() const {
-        cout << "Name: " << name << endl;
-        cout << "Price: $" << price << endl;
+    int getValue() const {
+        return value;
     }
 };
 ```
 
-## What it is for
+**What it is for:**  
+Safely reads and changes private data.
 
-Use this when each object should know how to display itself.
+**Change this:**  
+Change `value` and type.
 
-## How to change it
+**Expand it by:**  
+Add validation inside setter.
 
-Change:
-- class name
-- member variables
-- constructor
-- print output
+---
 
-## How to expand it
-
-Add formatting:
+# 26. Constructor
 
 ```cpp
-cout << fixed << setprecision(2);
+class Thing {
+private:
+    int value;
+
+public:
+    Thing(int v) {
+        value = v;
+    }
+};
+```
+
+**What it is for:**  
+Sets up an object when it is created.
+
+**Change this:**  
+Change parameters and assigned values.
+
+**Expand it by:**  
+Use an initializer list.
+
+---
+
+# 27. Initializer List
+
+```cpp
+class Thing {
+private:
+    int value;
+
+public:
+    Thing(int v) : value(v) {}
+};
+```
+
+**What it is for:**  
+Cleaner constructor style.
+
+**Change this:**  
+Change `value(v)`.
+
+**Expand it by:**  
+Initialize multiple variables.
+
+```cpp
+Thing(int a, int b) : x(a), y(b) {}
 ```
 
 ---
 
-# 22. Static Member Counter
-
-## Copy/Paste Code
+# 28. Print Method
 
 ```cpp
-class Student {
-private:
-    string name;
-    static int count;
-
-public:
-    Student(string n = "") : name(n) {
-        count++;
-    }
-
-    static int getCount() {
-        return count;
-    }
-};
-
-int Student::count = 0;
-```
-
-## What it is for
-
-Static variables belong to the class, not one object.
-
-Use this to count how many objects were created.
-
-## How to change it
-
-Change:
-- class name
-- `count` name if needed
-
-## How to expand it
-
-Print count:
-
-```cpp
-cout << "Students created: " << Student::getCount() << endl;
-```
-
----
-
-# 23. Friend Function
-
-## Copy/Paste Code
-
-```cpp
-class Box {
-private:
-    double width;
-
-public:
-    Box(double w) : width(w) {}
-
-    friend void printWidth(const Box& b);
-};
-
-void printWidth(const Box& b) {
-    cout << "Width: " << b.width << endl;
+void print() const {
+    cout << value << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Lets an object display itself.
 
-A friend function can access private data of a class.
+**Change this:**  
+Change what gets printed.
 
-Use carefully. It breaks normal privacy rules.
-
-## How to change it
-
-Change:
-- class name
-- private variable
-- friend function name
-
-## How to expand it
-
-Use friend functions for operators:
-
-```cpp
-friend ostream& operator<<(ostream& out, const Box& b);
-```
+**Expand it by:**  
+Print multiple member variables.
 
 ---
 
-# 24. Struct Template
-
-## Copy/Paste Code
+# 29. Struct
 
 ```cpp
-struct Student {
+struct Data {
     int id;
-    double gpa;
+    double amount;
 };
 ```
 
-## What it is for
+**What it is for:**  
+Groups simple data together.
 
-A struct is a simple way to group related data.
+**Change this:**  
+Change fields.
 
-By default, struct members are public.
+**Expand it by:**  
+Make an array or vector of structs.
 
-## How to change it
+---
 
-Add fields:
+# 30. Pointer
 
 ```cpp
-string name;
-int age;
+int x = 5;
+int* p = &x;
+
+cout << *p << endl;
 ```
 
-## How to expand it
+**What it is for:**  
+Stores the address of a variable.
 
-Create and use one:
+**Change this:**  
+Change the type.
+
+**Expand it by:**  
+Modify the value:
 
 ```cpp
-Student s;
-s.id = 1234;
-s.gpa = 3.5;
+*p = 10;
 ```
 
 ---
 
-# 25. Pointer Basics
-
-## Copy/Paste Code
+# 31. Dynamic Variable
 
 ```cpp
-int x = 10;
-int* ptr = &x;
+int* p = new int;
+*p = 5;
 
-cout << "Address of x: " << &x << endl;
-cout << "Value of x: " << x << endl;
-cout << "Value through pointer: " << *ptr << endl;
-
-*ptr = 20;
-
-cout << "New value of x: " << x << endl;
+delete p;
+p = nullptr;
 ```
 
-## What it is for
+**What it is for:**  
+Creates one variable on the heap.
 
-Pointers store memory addresses.
+**Change this:**  
+Change type.
 
-`&x` means address of `x`.  
-`*ptr` means value at the address inside `ptr`.
-
-## How to change it
-
-Change the type:
-
-```cpp
-double* ptr;
-string* ptr;
-```
-
-## How to expand it
-
-Use pointers with arrays and dynamic memory.
+**Expand it by:**  
+Use a dynamic array.
 
 ---
 
-# 26. Dynamic Single Variable
-
-## Copy/Paste Code
+# 32. Dynamic Array
 
 ```cpp
-int* ptr = new int;
-
-*ptr = 100;
-
-cout << *ptr << endl;
-
-delete ptr;
-ptr = nullptr;
-```
-
-## What it is for
-
-Use this to create one value on the heap.
-
-## How to change it
-
-Change type:
-
-```cpp
-double* ptr = new double;
-string* ptr = new string;
-```
-
-## How to expand it
-
-Always set pointer to `nullptr` after deleting it.
-
----
-
-# 27. Dynamic Array
-
-## Copy/Paste Code
-
-```cpp
-int size;
-
-cout << "Enter size: ";
-cin >> size;
-
 int* arr = new int[size];
-
-for (int i = 0; i < size; i++) {
-    arr[i] = 0;
-}
-
-for (int i = 0; i < size; i++) {
-    cout << arr[i] << " ";
-}
 
 delete[] arr;
 arr = nullptr;
 ```
 
-## What it is for
+**What it is for:**  
+Creates an array whose size is decided while the program runs.
 
-Use this when the user decides the array size at runtime.
+**Change this:**  
+Change type and size.
 
-## How to change it
-
-Change type:
-
-```cpp
-double* arr = new double[size];
-```
-
-## How to expand it
-
-Ask the user to fill it:
-
-```cpp
-cin >> arr[i];
-```
+**Expand it by:**  
+Fill it with a loop.
 
 ---
 
-# 28. Rule of Three Class
-
-## Copy/Paste Code
+# 33. Rule of Three Skeleton
 
 ```cpp
-class IntArray {
+class Box {
 private:
-    int size;
     int* data;
 
 public:
-    IntArray(int s) : size(s) {
-        data = new int[size] {0};
+    Box() {
+        data = new int(0);
     }
 
-    ~IntArray() {
-        delete[] data;
+    ~Box() {
+        delete data;
     }
 
-    IntArray(const IntArray& other) : size(other.size) {
-        data = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            data[i] = other.data[i];
-        }
+    Box(const Box& other) {
+        data = new int(*other.data);
     }
 
-    IntArray& operator=(const IntArray& other) {
+    Box& operator=(const Box& other) {
         if (this != &other) {
-            delete[] data;
-
-            size = other.size;
-            data = new int[size];
-
-            for (int i = 0; i < size; i++) {
-                data[i] = other.data[i];
-            }
+            delete data;
+            data = new int(*other.data);
         }
-
         return *this;
     }
 };
 ```
 
-## What it is for
+**What it is for:**  
+Use when a class owns dynamic memory.
 
-Use this when a class owns dynamic memory.
+**Change this:**  
+Change the data type.
 
-Rule of Three:
-1. Destructor
-2. Copy constructor
-3. Copy assignment operator
-
-## How to change it
-
-Change:
-- class name
-- data type
-- variable names
-
-## How to expand it
-
-Add functions:
-
-```cpp
-void setValue(int index, int value);
-void print() const;
-```
+**Expand it by:**  
+Use arrays with `new[]` and `delete[]`.
 
 ---
 
-# 29. Linked List Node
-
-## Copy/Paste Code
+# 34. Linked List Node
 
 ```cpp
 struct Node {
@@ -1334,940 +783,404 @@ struct Node {
 };
 ```
 
-## What it is for
+**What it is for:**  
+Basic linked list piece.
 
-This is the basic building block of a linked list.
+**Change this:**  
+Change `int data`.
 
-Each node stores:
-- data
-- a pointer to the next node
-
-## How to change it
-
-Change `int data` to another type:
-
-```cpp
-Student data;
-string data;
-```
-
-## How to expand it
-
-Create a new node:
-
-```cpp
-Node* newNode = new Node;
-newNode->data = 10;
-newNode->next = nullptr;
-```
+**Expand it by:**  
+Add insert/search/delete functions.
 
 ---
 
-# 30. Insert at End of Linked List
-
-## Copy/Paste Code
+# 35. Make New Node
 
 ```cpp
-Node* insertEnd(Node* head, int value) {
-    Node* newNode = new Node;
-    newNode->data = value;
-    newNode->next = nullptr;
-
-    if (head == nullptr) {
-        return newNode;
-    }
-
-    Node* current = head;
-
-    while (current->next != nullptr) {
-        current = current->next;
-    }
-
-    current->next = newNode;
-    return head;
-}
+Node* node = new Node;
+node->data = 10;
+node->next = nullptr;
 ```
 
-## What it is for
+**What it is for:**  
+Creates a linked list node.
 
-Adds a new node to the end of a linked list.
+**Change this:**  
+Change the value.
 
-## How to change it
-
-If your node stores a `Student`, change:
-
-```cpp
-int value
-```
-
-to:
-
-```cpp
-Student value
-```
-
-and:
-
-```cpp
-newNode->data = value;
-```
-
-still works.
-
-## How to expand it
-
-Track list size with a counter variable.
+**Expand it by:**  
+Attach it to a list.
 
 ---
 
-# 31. Display Linked List
-
-## Copy/Paste Code
+# 36. Inheritance
 
 ```cpp
-void displayList(Node* head) {
-    Node* current = head;
-
-    while (current != nullptr) {
-        cout << current->data << " ";
-        current = current->next;
-    }
-
-    cout << endl;
-}
-```
-
-## What it is for
-
-Prints every value in a linked list.
-
-## How to change it
-
-If `data` is a struct:
-
-```cpp
-cout << current->data.id << " " << current->data.gpa << endl;
-```
-
-## How to expand it
-
-Add an empty-list check:
-
-```cpp
-if (head == nullptr) {
-    cout << "List is empty" << endl;
-}
-```
-
----
-
-# 32. Search Linked List
-
-## Copy/Paste Code
-
-```cpp
-bool searchList(Node* head, int target) {
-    Node* current = head;
-
-    while (current != nullptr) {
-        if (current->data == target) {
-            return true;
-        }
-
-        current = current->next;
-    }
-
-    return false;
-}
-```
-
-## What it is for
-
-Checks whether a value exists in a linked list.
-
-## How to change it
-
-If searching a struct by ID:
-
-```cpp
-if (current->data.id == target)
-```
-
-## How to expand it
-
-Return the node instead of true/false:
-
-```cpp
-Node* searchList(Node* head, int target)
-```
-
----
-
-# 33. Delete Linked List Memory
-
-## Copy/Paste Code
-
-```cpp
-void freeList(Node*& head) {
-    Node* current = head;
-
-    while (current != nullptr) {
-        Node* nextNode = current->next;
-        delete current;
-        current = nextNode;
-    }
-
-    head = nullptr;
-}
-```
-
-## What it is for
-
-Deletes every node so you do not leak memory.
-
-## How to change it
-
-Usually you do not need to change this unless your node structure changes heavily.
-
-## How to expand it
-
-Call it before the program ends:
-
-```cpp
-freeList(head);
-```
-
----
-
-# 34. Basic Inheritance
-
-## Copy/Paste Code
-
-```cpp
-class Animal {
+class Base {
 public:
-    void speak() const {
-        cout << "Animal speaks" << endl;
+    void show() {
+        cout << "Base" << endl;
     }
 };
 
-class Dog : public Animal {
+class Derived : public Base {
+};
+```
+
+**What it is for:**  
+Lets one class reuse another class.
+
+**Change this:**  
+Change class names.
+
+**Expand it by:**  
+Add functions to the derived class.
+
+---
+
+# 37. Virtual Function
+
+```cpp
+class Base {
 public:
-    void bark() const {
-        cout << "Dog barks" << endl;
+    virtual void show() {
+        cout << "Base" << endl;
+    }
+
+    virtual ~Base() {}
+};
+
+class Derived : public Base {
+public:
+    void show() override {
+        cout << "Derived" << endl;
     }
 };
 ```
 
-## What it is for
+**What it is for:**  
+Allows runtime polymorphism.
 
-Inheritance lets one class reuse another class.
+**Change this:**  
+Change the function name and output.
 
-`Dog` inherits from `Animal`.
-
-## How to change it
-
-Change:
-- base class name
-- derived class name
-- functions
-
-## How to expand it
-
-Use protected data:
+**Expand it by:**  
+Use a base pointer:
 
 ```cpp
-protected:
-    int age;
+Base* p = new Derived();
+p->show();
+delete p;
 ```
-
-Derived classes can access protected members.
 
 ---
 
-# 35. Virtual Function / Polymorphism
-
-## Copy/Paste Code
+# 38. Operator +
 
 ```cpp
-class Shape {
-public:
-    virtual double area() const {
-        return 0.0;
-    }
-
-    virtual ~Shape() {}
-};
-
-class Circle : public Shape {
+class Num {
 private:
-    double radius;
+    int value;
 
 public:
-    Circle(double r) : radius(r) {}
+    Num(int v = 0) : value(v) {}
 
-    double area() const override {
-        return 3.14159 * radius * radius;
+    Num operator+(const Num& other) const {
+        return Num(value + other.value);
     }
 };
 ```
 
-## What it is for
+**What it is for:**  
+Lets objects use `+`.
 
-Use this when a base class pointer should call the derived class version of a function.
+**Change this:**  
+Change the calculation.
 
-Example:
-
-```cpp
-Shape* s = new Circle(5.0);
-cout << s->area() << endl;
-delete s;
-```
-
-## How to change it
-
-Change:
-- base class
-- derived class
-- virtual function
-
-## How to expand it
-
-Add more derived classes:
-
-```cpp
-class Rectangle : public Shape
-```
+**Expand it by:**  
+Add `-`, `*`, `/`, or comparisons.
 
 ---
 
-# 36. Operator Overloading: Plus Operator
-
-## Copy/Paste Code
+# 39. Output Operator
 
 ```cpp
-class Number {
+class Num {
 private:
-    double value;
+    int value;
 
 public:
-    Number(double v = 0.0) : value(v) {}
+    Num(int v = 0) : value(v) {}
 
-    Number operator+(const Number& other) const {
-        return Number(value + other.value);
-    }
-
-    void display() const {
-        cout << value << endl;
-    }
-};
-```
-
-## What it is for
-
-Lets objects use operators like `+`.
-
-Example:
-
-```cpp
-Number a(5);
-Number b(3);
-Number c = a + b;
-```
-
-## How to change it
-
-Change the calculation:
-
-```cpp
-return Number(value - other.value);
-```
-
-## How to expand it
-
-Add more operators:
-
-```cpp
-operator-
-operator*
-operator/
-operator==
-operator<
-```
-
----
-
-# 37. Operator Overloading: Output `<<`
-
-## Copy/Paste Code
-
-```cpp
-class Number {
-private:
-    double value;
-
-public:
-    Number(double v = 0.0) : value(v) {}
-
-    friend ostream& operator<<(ostream& out, const Number& n);
+    friend ostream& operator<<(ostream& out, const Num& n);
 };
 
-ostream& operator<<(ostream& out, const Number& n) {
+ostream& operator<<(ostream& out, const Num& n) {
     out << n.value;
     return out;
 }
 ```
 
-## What it is for
-
-Lets you print objects directly:
-
-```cpp
-cout << myNumber << endl;
-```
-
-## How to change it
-
-Change what gets printed:
+**What it is for:**  
+Lets you use:
 
 ```cpp
-out << "Value: " << n.value;
+cout << object;
 ```
 
-## How to expand it
+**Change this:**  
+Change what `out` prints.
 
-Use with classes like:
-- Distance
-- Student
-- Contact
-- Item
+**Expand it by:**  
+Print multiple fields.
 
 ---
 
-# 38. String Find / Substring / Replace
-
-## Copy/Paste Code
+# 40. File Write
 
 ```cpp
-string text = "Hello world";
+ofstream file("data.txt");
 
-int position = text.find("world");
+file << "Hello" << endl;
 
-if (position != string::npos) {
-    cout << "Found at index: " << position << endl;
-}
-
-string part = text.substr(0, 5);
-cout << part << endl;
-
-text.replace(0, 5, "Hi");
-cout << text << endl;
+file.close();
 ```
 
-## What it is for
-
-Use this when working with text.
-
-## How to change it
-
-Change:
-- search word
-- substring start and length
-- replacement text
-
-## How to expand it
-
-Find first word:
-
-```cpp
-string first = text.substr(0, text.find(' '));
-```
-
----
-
-# 39. File Output
-
-## Copy/Paste Code
+**Required include:**
 
 ```cpp
 #include <fstream>
-
-ofstream outFile("output.txt");
-
-if (outFile.is_open()) {
-    outFile << "Hello file!" << endl;
-    outFile.close();
-}
-else {
-    cout << "Could not open file." << endl;
-}
 ```
 
-## What it is for
+**What it is for:**  
+Writes to a file.
 
-Writes data to a file.
+**Change this:**  
+Change filename and output.
 
-## How to change it
-
-Change the filename:
-
-```cpp
-ofstream outFile("grades.txt");
-```
-
-## How to expand it
-
-Write variables:
-
-```cpp
-outFile << name << " " << score << endl;
-```
+**Expand it by:**  
+Check if file opened.
 
 ---
 
-# 40. File Input
-
-## Copy/Paste Code
+# 41. File Read
 
 ```cpp
-#include <fstream>
-
-ifstream inFile("input.txt");
-
+ifstream file("data.txt");
 string word;
 
-if (inFile.is_open()) {
-    while (inFile >> word) {
-        cout << word << endl;
-    }
+while (file >> word) {
+    cout << word << endl;
+}
 
-    inFile.close();
-}
-else {
-    cout << "Could not open file." << endl;
-}
+file.close();
 ```
 
-## What it is for
-
-Reads data from a file.
-
-## How to change it
-
-Change the filename and variable type.
-
-Example:
+**Required include:**
 
 ```cpp
-int number;
-while (inFile >> number)
+#include <fstream>
 ```
 
-## How to expand it
+**What it is for:**  
+Reads from a file.
 
-Read full lines:
+**Change this:**  
+Change filename and variable.
+
+**Expand it by:**  
+Use `getline()` for full lines.
+
+---
+
+# 42. Swap
 
 ```cpp
-string line;
+int temp = a;
+a = b;
+b = temp;
+```
 
-while (getline(inFile, line)) {
-    cout << line << endl;
-}
+**What it is for:**  
+Swaps two values.
+
+**Change this:**  
+Use different variable names.
+
+**Expand it by:**  
+Put it inside a function.
+
+---
+
+# 43. Random Number
+
+```cpp
+int number = rand() % 10 + 1;
+```
+
+**Required include:**
+
+```cpp
+#include <cstdlib>
+```
+
+**What it is for:**  
+Gets a random number from 1 to 10.
+
+**Change this:**  
+Change `10`.
+
+**Expand it by:**  
+Seed randomness:
+
+```cpp
+#include <ctime>
+srand(time(0));
 ```
 
 ---
 
-# 41. Try/Catch Template
-
-## Copy/Paste Code
+# 44. Try / Catch
 
 ```cpp
 try {
-    int age;
-
-    cout << "Enter age: ";
-    cin >> age;
-
-    if (age < 0) {
-        throw "Age cannot be negative.";
-    }
-
-    cout << "Age: " << age << endl;
+    throw "Something went wrong";
 }
 catch (const char* message) {
-    cout << "Error: " << message << endl;
+    cout << message << endl;
 }
 ```
 
-## What it is for
+**What it is for:**  
+Handles simple errors.
 
-Use this for basic exception handling.
+**Change this:**  
+Change the message.
 
-## How to change it
-
-Change the condition and error message.
-
-## How to expand it
-
-Use `runtime_error`:
-
-```cpp
-#include <stdexcept>
-
-throw runtime_error("Something went wrong.");
-```
+**Expand it by:**  
+Throw only when a condition fails.
 
 ---
 
-# 42. Contact Class Template
-
-## Copy/Paste Code
+# 45. Debug Print
 
 ```cpp
-class Contact {
-private:
-    string firstName;
-    string lastName;
-    string phone;
-    string email;
-
-public:
-    Contact() : firstName(""), lastName(""), phone(""), email("") {}
-
-    Contact(string first, string last, string p, string e)
-        : firstName(first), lastName(last), phone(p), email(e) {}
-
-    string getLastName() const {
-        return lastName;
-    }
-
-    void display() const {
-        cout << "First Name: " << firstName << endl;
-        cout << "Last Name: " << lastName << endl;
-        cout << "Phone: " << phone << endl;
-        cout << "Email: " << email << endl;
-    }
-};
+cout << "DEBUG: x = " << x << endl;
 ```
 
-## What it is for
+**What it is for:**  
+Checks a variable while the program runs.
 
-Use this for contact-management assignments.
+**Change this:**  
+Change `x`.
 
-## How to change it
-
-Add more fields:
-
-```cpp
-string address;
-string birthday;
-```
-
-## How to expand it
-
-Create a vector of contacts:
-
-```cpp
-vector<Contact> contacts;
-contacts.push_back(Contact("Mary", "Smith", "555-1111", "mary@email.com"));
-```
+**Expand it by:**  
+Print multiple variables.
 
 ---
 
-# 43. Class Object Vector Menu Pattern
-
-## Copy/Paste Code
+# 46. Clean Input Before getline
 
 ```cpp
-vector<Contact> contacts;
-
-contacts.push_back(Contact("Mary", "Smith", "555-1111", "mary@email.com"));
-
-for (const Contact& c : contacts) {
-    c.display();
-}
+cin.ignore();
 ```
 
-## What it is for
+**What it is for:**  
+Clears leftover Enter key before `getline()`.
 
-Use this when your program stores many objects.
+**Change this:**  
+Usually do not change it.
 
-## How to change it
-
-Change `Contact` to your class:
-
-```cpp
-vector<Student> students;
-vector<Item> inventory;
-```
-
-## How to expand it
-
-Search by a getter:
-
-```cpp
-if (contacts[i].getLastName() == target)
-```
-
----
-
-# 44. Clean Print Divider
-
-## Copy/Paste Code
-
-```cpp
-void printDivider() {
-    cout << "----------------------------------------" << endl;
-}
-```
-
-## What it is for
-
-Keeps output easier to read.
-
-## How to change it
-
-Change the line:
-
-```cpp
-cout << "========================================" << endl;
-```
-
-## How to expand it
-
-Use a title:
-
-```cpp
-void printTitle(string title) {
-    cout << "\n===== " << title << " =====" << endl;
-}
-```
-
----
-
-# 45. Quick Debug Print
-
-## Copy/Paste Code
-
-```cpp
-cout << "DEBUG: value = " << value << endl;
-```
-
-## What it is for
-
-Use this to check what a variable is doing while your program runs.
-
-## How to change it
-
-Change `value` to the variable you want to inspect.
-
-## How to expand it
-
-Print several values:
-
-```cpp
-cout << "DEBUG: i = " << i << ", total = " << total << endl;
-```
-
----
-
-# 46. Safe `cin` Cleanup After Number Input
-
-## Copy/Paste Code
+**Expand it by:**  
+More complete version:
 
 ```cpp
 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 ```
 
-## Required Include
+Required include:
 
 ```cpp
 #include <limits>
 ```
 
-## What it is for
+---
 
-Use this after `cin >> number;` before using `getline()`.
+# 47. Small Compile Command
 
-Without this, `getline()` may accidentally read the leftover newline.
+```bash
+g++ file.cpp -o file
+./file
+```
 
-## How to change it
+**What it is for:**  
+Compiles and runs a C++ file.
 
-Usually do not change it.
+**Change this:**  
+Change `file.cpp` and output name.
 
-## How to expand it
+**Expand it by:**  
+Use warnings:
 
-Example:
-
-```cpp
-int age;
-string name;
-
-cin >> age;
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-getline(cin, name);
+```bash
+g++ -Wall -Wextra file.cpp -o file
 ```
 
 ---
 
-# 47. Search Array
+# 48. Git Save Changes
 
-## Copy/Paste Code
-
-```cpp
-bool found = false;
-int target = 50;
-
-for (int i = 0; i < SIZE; i++) {
-    if (numbers[i] == target) {
-        cout << "Found at index " << i << endl;
-        found = true;
-        break;
-    }
-}
-
-if (!found) {
-    cout << "Not found" << endl;
-}
+```bash
+git add .
+git commit -m "message here"
+git push
 ```
 
-## What it is for
+**What it is for:**  
+Saves and uploads changes to GitHub.
 
-Use this to find a value in an array.
+**Change this:**  
+Change the commit message.
 
-## How to change it
+**Expand it by:**  
+Check status first:
 
-Change:
-- `target`
-- array name
-- condition
-
-## How to expand it
-
-For strings:
-
-```cpp
-if (names[i] == targetName)
+```bash
+git status
 ```
 
 ---
 
-# 48. Delete From Array by Shifting
+# 49. Git Move File
 
-## Copy/Paste Code
-
-```cpp
-int deleteIndex = 2;
-
-for (int i = deleteIndex; i < size - 1; i++) {
-    numbers[i] = numbers[i + 1];
-}
-
-size--;
+```bash
+git mv oldname.cpp newname.cpp
 ```
 
-## What it is for
+**What it is for:**  
+Renames or moves a file while Git tracks it.
 
-Use this when deleting from a normal array.
+**Change this:**  
+Change old and new paths.
 
-Since arrays cannot shrink, you shift everything left and reduce the logical size.
+**Expand it by:**  
+Move into folder:
 
-## How to change it
-
-Change `deleteIndex`.
-
-## How to expand it
-
-Search first, then delete the found index.
-
----
-
-# 49. Swap Function
-
-## Copy/Paste Code
-
-```cpp
-void swapValues(int& a, int& b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
-```
-
-## What it is for
-
-Swaps two values using references.
-
-## How to change it
-
-Change type:
-
-```cpp
-void swapValues(double& a, double& b)
-```
-
-## How to expand it
-
-Use pointer version:
-
-```cpp
-void swapValues(int* a, int* b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+```bash
+git mv file.cpp folder/file.cpp
 ```
 
 ---
 
-# 50. Sorting a Vector
+# 50. How to Reuse These
 
-## Copy/Paste Code
+When copying a snippet:
 
-```cpp
-sort(numbers.begin(), numbers.end());
-```
-
-## Required Include
-
-```cpp
-#include <algorithm>
-```
-
-## What it is for
-
-Sorts a vector from smallest to largest.
-
-## How to change it
-
-Descending order:
-
-```cpp
-sort(numbers.begin(), numbers.end(), greater<int>());
-```
-
-## How to expand it
-
-For strings:
-
-```cpp
-sort(names.begin(), names.end());
-```
-
----
-
-# 51. Final Advice for Reusing Snippets
-
-When copying a snippet into a new assignment:
-
-1. Change the class/function/variable names first.
-2. Check every type: `int`, `double`, `string`, custom class, etc.
-3. Make sure required includes are at the top.
-4. Make sure every `{` has a matching `}`.
-5. If you use `new`, make sure you use `delete`.
-6. If you use `new[]`, make sure you use `delete[]`.
-7. If a class owns dynamic memory, use the Rule of Three.
-8. Test one small section at a time.
-9. Add debug prints when something acts weird.
-10. Rename vague files like `new 2.cpp` before uploading to GitHub.
+1. Rename variables.
+2. Check the required `#include`.
+3. Match data types.
+4. Put functions above `main()` or use prototypes.
+5. Test one piece at a time.
+6. If you use `new`, use `delete`.
+7. If you use `new[]`, use `delete[]`.
+8. Keep examples small until they work.
