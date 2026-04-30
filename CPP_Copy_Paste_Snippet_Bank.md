@@ -1106,81 +1106,262 @@ Required include:
 
 ---
 
-# 47. Small Compile Command
+# 47. Object Vector Programs
 
-```bash
-g++ file.cpp -o file
-./file
-```
+These snippets are useful when you have a class and want to store many objects in a `vector`.
 
-**What it is for:**  
-Compiles and runs a C++ file.
+Example idea:
 
-**Change this:**  
-Change `file.cpp` and output name.
+```cpp
+vector<Item> items;
 
-**Expand it by:**  
-Use warnings:
+That means items stores many Item objects.
 
-```bash
-g++ -Wall -Wextra file.cpp -o file
-```
 
 ---
 
-# 48. Git Save Changes
+```md
+# Empty Vector Check
 
-```bash
-git add .
-git commit -m "message here"
-git push
-```
+```cpp
+if (items.empty()) {
+    cout << "No items found." << endl;
+    return;
+}
 
-**What it is for:**  
-Saves and uploads changes to GitHub.
+What it is for:
+Stops a function early if the vector has nothing inside it.
 
-**Change this:**  
-Change the commit message.
+Change this:
+Change items to your vector name.
 
-**Expand it by:**  
-Check status first:
+Expand it by:
+Use a more specific message.
 
-```bash
-git status
-```
-
----
-
-# 49. Git Move File
-
-```bash
-git mv oldname.cpp newname.cpp
-```
-
-**What it is for:**  
-Renames or moves a file while Git tracks it.
-
-**Change this:**  
-Change old and new paths.
-
-**Expand it by:**  
-Move into folder:
-
-```bash
-git mv file.cpp folder/file.cpp
-```
+cout << "No students found." << endl;
+cout << "No products found." << endl;
+cout << "No records found." << endl;
 
 ---
 
-# 50. How to Reuse These
+# 48. Add Object to Vector
 
-When copying a snippet:
+```cpp
+Item newItem(name, price);
+items.push_back(newItem);
 
-1. Rename variables.
-2. Check the required `#include`.
-3. Match data types.
-4. Put functions above `main()` or use prototypes.
-5. Test one piece at a time.
-6. If you use `new`, use `delete`.
-7. If you use `new[]`, use `delete[]`.
-8. Keep examples small until they work.
+What it is for:
+Creates an object and stores it in a vector.
+
+Change this:
+Change Item to your class name.
+Change name, price to match your constructor.
+
+Expand it by:
+Create the object directly inside push_back.
+
+items.push_back(Item(name, price));
+
+
+# Display All Objects in Vector
+
+```cpp
+for (int i = 0; i < items.size(); i++) {
+    items[i].print();
+}
+
+---
+
+What it is for:
+Loops through a vector of objects and calls each object’s print function.
+
+Change this:
+Change items to your vector name.
+Change print() to your class’s display function.
+
+Expand it by:
+Number each item.
+
+for (int i = 0; i < items.size(); i++) {
+    cout << "Item #" << i + 1 << endl;
+    items[i].print();
+}
+
+---
+
+```md
+# Search Object in Vector by Getter
+
+```cpp
+bool found = false;
+
+for (int i = 0; i < items.size(); i++) {
+    if (items[i].getName() == target) {
+        items[i].print();
+        found = true;
+    }
+}
+
+if (!found) {
+    cout << "Not found." << endl;
+}
+
+What it is for:
+Searches a vector of objects using a getter function.
+
+Change this:
+Change items to your vector name.
+Change getName() to the getter you need.
+Change target to the value you are searching for.
+
+Expand it by:
+Stop after the first match.
+
+for (int i = 0; i < items.size(); i++) {
+    if (items[i].getName() == target) {
+        items[i].print();
+        found = true;
+        break;
+    }
+}
+
+---
+
+```md
+# Delete Object from Vector by Getter
+
+```cpp
+for (int i = 0; i < items.size(); i++) {
+    if (items[i].getName() == target) {
+        items.erase(items.begin() + i);
+        cout << "Deleted successfully." << endl;
+        return;
+    }
+}
+
+cout << "Not found." << endl;
+
+What it is for:
+Deletes the first matching object from a vector.
+
+Change this:
+Change items to your vector name.
+Change getName() to your getter.
+Change target to the value you want to delete.
+
+Expand it by:
+Delete all matching objects by looping backward.
+
+for (int i = items.size() - 1; i >= 0; i--) {
+    if (items[i].getName() == target) {
+        items.erase(items.begin() + i);
+    }
+}
+
+---
+
+```md
+# Function That Receives a Vector by Reference
+
+```cpp
+void addItem(vector<Item>& items) {
+    string name;
+    double price;
+
+    cout << "Enter name: ";
+    cin >> name;
+
+    cout << "Enter price: ";
+    cin >> price;
+
+    items.push_back(Item(name, price));
+}
+
+What it is for:
+Lets a function change the original vector.
+
+Change this:
+Change Item to your class name.
+Change the input variables.
+
+Why the & matters:
+Without &, the function gets a copy of the vector.
+With &, the function changes the real vector.
+
+
+---
+
+```md
+# Function That Receives a Vector Without Changing It
+
+```cpp
+void displayItems(const vector<Item>& items) {
+    for (int i = 0; i < items.size(); i++) {
+        items[i].print();
+    }
+}
+
+What it is for:
+Lets a function read a vector without copying it or changing it.
+
+Change this:
+Change Item to your class name.
+Change print() to your display function.
+
+Why const matters:
+const means the function is not allowed to change the vector.
+
+
+---
+
+```md
+# Object Vector Menu Pattern
+
+```cpp
+vector<Item> items;
+int choice;
+
+do {
+    cout << "1. Add item" << endl;
+    cout << "2. Display items" << endl;
+    cout << "3. Exit" << endl;
+    cout << "Enter choice: ";
+    cin >> choice;
+
+    switch (choice) {
+    case 1:
+        addItem(items);
+        break;
+
+    case 2:
+        displayItems(items);
+        break;
+
+    case 3:
+        cout << "Goodbye!" << endl;
+        break;
+
+    default:
+        cout << "Invalid choice." << endl;
+    }
+
+} while (choice != 3);
+
+What it is for:
+Basic menu structure for programs that manage many objects.
+
+Change this:
+Change Item to your class name.
+Change the menu options.
+Change the function names.
+
+Expand it by:
+Add search and delete options.
+
+case 3:
+    searchItem(items);
+    break;
+
+case 4:
+    deleteItem(items);
+    break;
