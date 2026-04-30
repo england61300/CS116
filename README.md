@@ -3,6 +3,9 @@ Class assignments
 
 CS 116 : Programming in C++ - Gompertz P. - SPRING 2025 - SECTION# 16836
 
+### Reference Sheets
+- [C++ Copy/Paste Snippet Bank](CPP_Copy_Paste_Snippet_Bank.md)
+
 # Labs
 How to use:
 1. Open code space
