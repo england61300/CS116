@@ -1114,83 +1114,89 @@ Example idea:
 
 ```cpp
 vector<Item> items;
+```
 
-That means items stores many Item objects.
-
+That means `items` stores many `Item` objects.
 
 ---
 
-```md
-# Empty Vector Check
+# 48. Empty Vector Check
 
 ```cpp
 if (items.empty()) {
     cout << "No items found." << endl;
     return;
 }
+```
 
-What it is for:
+**What it is for:**  
 Stops a function early if the vector has nothing inside it.
 
-Change this:
-Change items to your vector name.
+**Change this:**  
+Change `items` to your vector name.
 
-Expand it by:
+**Expand it by:**  
 Use a more specific message.
 
+```cpp
 cout << "No students found." << endl;
 cout << "No products found." << endl;
 cout << "No records found." << endl;
+```
 
 ---
 
-# 48. Add Object to Vector
+# 49. Add Object to Vector
 
 ```cpp
 Item newItem(name, price);
 items.push_back(newItem);
+```
 
-What it is for:
+**What it is for:**  
 Creates an object and stores it in a vector.
 
-Change this:
-Change Item to your class name.
-Change name, price to match your constructor.
+**Change this:**  
+Change `Item` to your class name.  
+Change `name, price` to match your constructor.
 
-Expand it by:
-Create the object directly inside push_back.
+**Expand it by:**  
+Create the object directly inside `push_back`.
 
+```cpp
 items.push_back(Item(name, price));
+```
 
+---
 
-# Display All Objects in Vector
+# 50. Display All Objects in Vector
 
 ```cpp
 for (int i = 0; i < items.size(); i++) {
     items[i].print();
 }
+```
 
----
-
-What it is for:
+**What it is for:**  
 Loops through a vector of objects and calls each object’s print function.
 
-Change this:
-Change items to your vector name.
-Change print() to your class’s display function.
+**Change this:**  
+Change `items` to your vector name.  
+Change `print()` to your class’s display function.
 
-Expand it by:
+**Expand it by:**  
 Number each item.
 
+```cpp
 for (int i = 0; i < items.size(); i++) {
     cout << "Item #" << i + 1 << endl;
     items[i].print();
 }
+```
 
 ---
 
-```md
-# Search Object in Vector by Getter
+# 51. Search Object in Vector by Getter
 
 ```cpp
 bool found = false;
@@ -1205,18 +1211,20 @@ for (int i = 0; i < items.size(); i++) {
 if (!found) {
     cout << "Not found." << endl;
 }
+```
 
-What it is for:
+**What it is for:**  
 Searches a vector of objects using a getter function.
 
-Change this:
-Change items to your vector name.
-Change getName() to the getter you need.
-Change target to the value you are searching for.
+**Change this:**  
+Change `items` to your vector name.  
+Change `getName()` to the getter you need.  
+Change `target` to the value you are searching for.
 
-Expand it by:
+**Expand it by:**  
 Stop after the first match.
 
+```cpp
 for (int i = 0; i < items.size(); i++) {
     if (items[i].getName() == target) {
         items[i].print();
@@ -1224,11 +1232,11 @@ for (int i = 0; i < items.size(); i++) {
         break;
     }
 }
+```
 
 ---
 
-```md
-# Delete Object from Vector by Getter
+# 52. Delete Object from Vector by Getter
 
 ```cpp
 for (int i = 0; i < items.size(); i++) {
@@ -1240,28 +1248,30 @@ for (int i = 0; i < items.size(); i++) {
 }
 
 cout << "Not found." << endl;
+```
 
-What it is for:
+**What it is for:**  
 Deletes the first matching object from a vector.
 
-Change this:
-Change items to your vector name.
-Change getName() to your getter.
-Change target to the value you want to delete.
+**Change this:**  
+Change `items` to your vector name.  
+Change `getName()` to your getter.  
+Change `target` to the value you want to delete.
 
-Expand it by:
+**Expand it by:**  
 Delete all matching objects by looping backward.
 
+```cpp
 for (int i = items.size() - 1; i >= 0; i--) {
     if (items[i].getName() == target) {
         items.erase(items.begin() + i);
     }
 }
+```
 
 ---
 
-```md
-# Function That Receives a Vector by Reference
+# 53. Function That Receives a Vector by Reference
 
 ```cpp
 void addItem(vector<Item>& items) {
@@ -1276,23 +1286,22 @@ void addItem(vector<Item>& items) {
 
     items.push_back(Item(name, price));
 }
+```
 
-What it is for:
+**What it is for:**  
 Lets a function change the original vector.
 
-Change this:
-Change Item to your class name.
+**Change this:**  
+Change `Item` to your class name.  
 Change the input variables.
 
-Why the & matters:
-Without &, the function gets a copy of the vector.
-With &, the function changes the real vector.
-
+**Why the `&` matters:**  
+Without `&`, the function gets a copy of the vector.  
+With `&`, the function changes the real vector.
 
 ---
 
-```md
-# Function That Receives a Vector Without Changing It
+# 54. Function That Receives a Vector Without Changing It
 
 ```cpp
 void displayItems(const vector<Item>& items) {
@@ -1300,22 +1309,21 @@ void displayItems(const vector<Item>& items) {
         items[i].print();
     }
 }
+```
 
-What it is for:
+**What it is for:**  
 Lets a function read a vector without copying it or changing it.
 
-Change this:
-Change Item to your class name.
-Change print() to your display function.
+**Change this:**  
+Change `Item` to your class name.  
+Change `print()` to your display function.
 
-Why const matters:
-const means the function is not allowed to change the vector.
-
+**Why `const` matters:**  
+`const` means the function is not allowed to change the vector.
 
 ---
 
-```md
-# Object Vector Menu Pattern
+# 55. Object Vector Menu Pattern
 
 ```cpp
 vector<Item> items;
@@ -1346,18 +1354,20 @@ do {
     }
 
 } while (choice != 3);
+```
 
-What it is for:
+**What it is for:**  
 Basic menu structure for programs that manage many objects.
 
-Change this:
-Change Item to your class name.
-Change the menu options.
+**Change this:**  
+Change `Item` to your class name.  
+Change the menu options.  
 Change the function names.
 
-Expand it by:
+**Expand it by:**  
 Add search and delete options.
 
+```cpp
 case 3:
     searchItem(items);
     break;
@@ -1365,3 +1375,4 @@ case 3:
 case 4:
     deleteItem(items);
     break;
+```
